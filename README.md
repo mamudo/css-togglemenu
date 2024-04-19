@@ -8,5 +8,4 @@ No JavaScript used.
 
 ## Demo
 
-
-https://github.com/mamudo/css-togglemenu/blob/0428ee7777e1b055276288b7d452caf3a62418db/toggle-menu-sidebar-screenshot.gif
+![](https://github.com/mamudo/css-togglemenu/blob/main/toggle-menu-sidebar-screenshot.gif)
