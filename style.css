@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+html, body{
+    height: 100%;
+}
+body{
+    padding: 10px;
+}
+.sidebar{
+    width: 20rem;
+    height: 100%;
+    background-color: #24272D;
+    border-radius: 14px;
+    padding: 0 1rem 1rem;
+    position: relative;
+    transition: 230ms all;
+    display: flex;
+    flex-direction: column;
+    
+   
+    input[name="toggleMenu"]{
+        display: none;
+    }
+
+    .toggle{
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #24272D;
+        background-color:#97D521;
+        position: absolute;
+        top: 1rem;
+        left: 100%;
+        translate: -50%;
+        transition: 320ms all;
+
+        svg{
+            width: 1rem;
+            height: 1rem;
+            rotate: 180deg;
+            transition: 320ms all;
+        }
+    }
+
+    .header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1rem 0;
+        color: #fff;
+        font-size: 1.4rem;
+        font-weight: 500;
+        img{
+            width: 3.3rem;
+            height: 3.3rem;
+            flex-shrink: 0;
+        }
+        div{
+            padding-left: 1rem;
+        }
+        a{
+            color: rgba(255, 255, 255, .8);
+            transition: .2s all;
+            &:hover{
+                color: #fff;
+            }
+        }
+    }
+    .hidden{
+        opacity: 1;
+        visibility: visible;
+        transition: 320ms all;
+        white-space: nowrap;
+    }
+
+    &:has(input[name="toggleMenu"]:checked){
+        width: 6rem;
+        .search{
+            width: 2.5rem;
+            label{
+                display: block;
+            }
+        }
+        .menu a{
+            width: 2.5rem;
+        }
+        .menu .icon{
+            &:hover{
+                &::after, &::before{
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .hidden{
+            opacity: 0;
+            visibility: hidden;
+        }
+        .toggle svg{
+            rotate: 0deg;
+        }
+        .search input{
+            padding-right: 0;
+        }
+
+    }
+    .search{
+        position: relative;
+        label{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2.4rem;
+            height: 2.4rem;
+            z-index: 1;
+            display: none;
+        }
+        
+        input{
+            width: 100%;
+            height: 2.4rem;
+            background-color: rgba(255,255,255,.2);
+            border-radius: 4px;
+            outline: none;
+            padding: 0 1rem 0 2.4rem;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .icon{
+            width: 2.4rem;
+            height: 2.4rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            svg{
+                color: #fff;
+                width: 1.8rem;
+                height: 1.8rem;
+            }
+        }
+    }
+
+    .menu{
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        padding-top: 0.4rem;
+    
+        a{
+            display: flex;
+            align-items: center;
+            height: 2.4rem;
+            border-radius: 4px;
+            color: #fff;
+            margin-top: 0.4rem;
+            
+            &:where(:hover, .active){
+                background-color: rgba(255,255,255,.1);
+            }
+
+            .icon{
+                width: 2.4rem;
+                height: 2.4rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                position: relative;
+                
+
+
+                &::before{
+                    content: attr(title);
+                    position: absolute;
+                    top: 50%;
+                    left: 100%;
+                    translate: 3rem -50%;
+                    color: #fff;
+                    padding: 4px 5px;
+                    border-radius: 4px;
+                    background-color: #24272D;
+                    white-space: nowrap;
+                    font-size: .8rem;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: 230ms all;
+                }
+                &::after{
+                    content: '';
+                    border: .4rem solid transparent;
+                    border-right-color: #24272D;
+                    position: absolute;
+                    top: 50%;
+                    left: 100%;
+                    translate: 2.2rem -50%;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: 230ms all;
+
+                }
+                
+                svg{
+                    width: 1.8rem;
+                    height: 1.8rem;
+                }
+            }
+        }
+    }
+    .user{
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+        margin-top: auto;
+        color: #fff;
+
+        /* margin-top: auto; */
+        img{
+            width: 2.7rem;
+            height: 2.7rem;
+            background-color: rgba(255, 255, 255, .1);
+            border-radius: 50%;
+            padding: .1rem;
+            transition: .15s all;
+            &:hover{
+                background-color: rgba(255, 255, 255, .2);
+
+            }
+        }
+        .name{
+            font-size: .9rem;
+        }
+        .email{
+            font-size: .8rem;
+            color: rgba(255, 255, 255, .5);
+        }
+        button{
+            width: 1.8rem;
+            height: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto ;
+            background-color: transparent;
+            color: rgba(255, 255, 255, .7);
+            svg{
+                width: 1.5rem;
+                height: 1.5rem;
+                transition: .15s all;
+            }
+            &:hover{
+                svg{
+                    color: #fff;
+                }
+            }
+        }
+
+    }
+}
+
